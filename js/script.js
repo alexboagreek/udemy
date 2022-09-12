@@ -14,7 +14,9 @@
 
 'use strict';
 
-const movieDB = {
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const movieDB = {
     movies: [
         "Логан",
         "Лига справедливости",
@@ -22,41 +24,43 @@ const movieDB = {
         "Одержимость",
         "Скотт Пилигрим против..."
     ]
-};
+    };
 
-// const adv = document.querySelectorAll('.item');
-// console.log(adv);
+    // const adv = document.querySelectorAll('.item');
+    // console.log(adv);
 
-// adv.forEach(elem => {
-//     elem.remove();
-// });
-//** удалили рекламные изображения со страницы */
-const adv = document.querySelectorAll('.promo__adv img');
-const poster = document.querySelector('.promo__bg');
-const genre = poster.querySelector('.promo__genre');
-const movieList = document.querySelector('.promo__interactive-list');
+    // adv.forEach(elem => {
+    //     elem.remove();
+    // });
+    //** удалили рекламные изображения со страницы */
+    const adv = document.querySelectorAll('.promo__adv img');
+    const poster = document.querySelector('.promo__bg');
+    const genre = poster.querySelector('.promo__genre');
+    const movieList = document.querySelector('.promo__interactive-list');
 
-adv.forEach(item => {
+    adv.forEach(item => {
     item.remove();
-});
+    });
 
-//** заменили заголовок фильма */
-genre.textContent = 'драма';
+    //** заменили заголовок фильма */
+    genre.textContent = 'драма';
 
-//** заменили бекграунд изображения */
-poster.style.backgroundImage = 'url("img/bg.jpg")';
+    //** заменили бекграунд изображения */
+    poster.style.backgroundImage = 'url("img/bg.jpg")';
 
-//** очистили список фильмов  */
-movieList.innerHTML = '';
+    //** очистили список фильмов  */
+    movieList.innerHTML = '';
 
-//** отсортировали массив фильмов */
-movieDB.movies.sort();
+    //** отсортировали массив фильмов */ 
+    movieDB.movies.sort();
 
-//** создали новый список фильмов при помощи магии*/
-movieDB.movies.forEach((movie, index) => {
+    //** создали новый список фильмов при помощи магии*/
+    movieDB.movies.forEach((movie, index) => {
     movieList.innerHTML += `
         <li class="promo__interactive-item">${index + 1} ${movie}
             <div class="delete"></div>
         </li>
     `;
+    });
+
 });
